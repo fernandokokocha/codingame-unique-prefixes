@@ -44,4 +44,24 @@ RSpec.describe UniquePrefixes do
   it "3 words 1 letter each different" do
     expect(unique_prefixes.run(["a", "b", "c"])).to eq(["a", "b", "c"])
   end
+
+  it "3 words 1 letter each same" do
+    expect(unique_prefixes.run(["a", "a", "a"])).to eq(["a", "a", "a"])
+  end
+
+  it "3 words 1 letter 2 same" do
+    expect(unique_prefixes.run(["a", "a", "b"])).to eq(["a", "a", "b"])
+  end
+
+  it "3 words matrioshka" do
+    expect(unique_prefixes.run(["a", "aa", "aaa"])).to eq(["a", "aa", "aaa"])
+  end
+
+  it "3 words matrioshka backwards" do
+    expect(unique_prefixes.run(["aaa", "aa", "a"])).to eq(["aaa", "aa", "a"])
+  end
+
+  it "4 words matrioshka" do
+    expect(unique_prefixes.run(["a", "aa", "aaa", "aaaa"])).to eq(["a", "aa", "aaa", "aaaa"])
+  end
 end
