@@ -11,8 +11,12 @@ RSpec.describe UniquePrefixes do
     expect(unique_prefixes.run(["a", "b"])).to eq(["a", "b"])
   end
 
-  # * A word can be given several times in the given list. All the occurences of this word will share the same prefix.
+  # A word can be given several times in the given list. All the occurences of this word will share the same prefix.
   it "2 words 1 letter the same" do
     expect(unique_prefixes.run(["a", "a"])).to eq(["a", "a"])
+  end
+
+  it "2 words 2 letters sharing first" do
+    expect(unique_prefixes.run(["ab", "ac"])).to eq(["ab", "ac"])
   end
 end
