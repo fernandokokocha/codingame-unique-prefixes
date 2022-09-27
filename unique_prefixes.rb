@@ -4,12 +4,17 @@ class UniquePrefixes
     new_word_2 = words[1]
 
     if (words[0][0] != new_word_2[0])
-      new_word_2.chop! if (new_word_2.length > 1)
+      while (new_word_2.length > 1)
+        new_word_2.chop!
+      end
     end
 
     if (words[1][0] != new_word_1[0])
-      new_word_1.chop! if (new_word_1.length > 1)
+      while (new_word_1.length > 1)
+        new_word_1.chop!
+      end
     end
+
     [
       new_word_1,
       new_word_2,
