@@ -41,6 +41,10 @@ RSpec.describe UniquePrefixes do
     expect(unique_prefixes.run(["abcdefghijkl", "abcdexyz"])).to eq(["abcdef", "abcdex"])
   end
 
+  it "2 words 8 one including other and more" do
+    expect(unique_prefixes.run(["aa", "aaaaa"])).to eq(["aa", "aaa"])
+  end
+
   it "3 words 1 letter each different" do
     expect(unique_prefixes.run(["a", "b", "c"])).to eq(["a", "b", "c"])
   end

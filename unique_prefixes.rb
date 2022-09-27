@@ -2,11 +2,12 @@ class UniquePrefixes
   def run(words)
     new_words = []
     words.each_with_index do |word, index|
-      target_size = word.size
+      target_size = 0
       words.each_with_index do |other_word, i|
         next if index === i
+
         potential_target_size = target_size(word, other_word)
-        target_size = [target_size, potential_target_size].min
+        target_size = [target_size, potential_target_size].max
       end
 
       new_word = word
