@@ -16,6 +16,10 @@ RSpec.describe UniquePrefixes do
     expect(unique_prefixes.run(["a", "ab"])).to eq(["a", "ab"])
   end
 
+  it "2 words 1 letter 2 letters unique" do
+    expect(unique_prefixes.run(["a", "bc"])).to eq(["a", "b"])
+  end
+
   skip "2 words 2 letters sharing first" do
     expect(unique_prefixes.run(["ab", "ac"])).to eq(["ab", "ac"])
   end
