@@ -3,10 +3,6 @@ require "./unique_prefixes"
 RSpec.describe UniquePrefixes do
   let(:unique_prefixes) { UniquePrefixes.new }
 
-  it "null case" do
-    expect(unique_prefixes.run([])).to eq([])
-  end
-
   it "2 words 1 letter each different" do
     expect(unique_prefixes.run(["a", "b"])).to eq(["a", "b"])
   end
@@ -16,7 +12,18 @@ RSpec.describe UniquePrefixes do
     expect(unique_prefixes.run(["a", "a"])).to eq(["a", "a"])
   end
 
-  it "2 words 2 letters sharing first" do
+  it "2 words 1 letter 2 letters sharing first" do
+    expect(unique_prefixes.run(["a", "ab"])).to eq(["a", "ab"])
+  end
+
+  skip "2 words 2 letters sharing first" do
     expect(unique_prefixes.run(["ab", "ac"])).to eq(["ab", "ac"])
   end
+
+  skip "2 words 2 letters each dfferent" do
+    expect(unique_prefixes.run(["ab", "cd"])).to eq(["a", "c"])
+  end
+
+  it "2 words 1 letter 2 letters"
+  it "2 words 1 letter 2 letters sharing first one"
 end
