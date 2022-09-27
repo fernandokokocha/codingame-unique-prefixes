@@ -4,12 +4,13 @@ class UniquePrefixes
     new_word_2 = words[1]
 
     i = last_same_letter_index(words[0], new_word_2)
-    while (new_word_2.length > i + 1)
+    while (new_word_2.length > i + 2)
       new_word_2.chop!
     end
 
     i = last_same_letter_index(words[1], new_word_1)
-    while (new_word_1.length > i + 1)
+    target_size = i + 2
+    while (new_word_1.length > i + 2)
       new_word_1.chop!
     end
 
@@ -26,6 +27,6 @@ class UniquePrefixes
            word1[index] == word2[index])
       index += 1
     end
-    index
+    index - 1
   end
 end
