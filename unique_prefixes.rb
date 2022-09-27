@@ -3,16 +3,26 @@ class UniquePrefixes
     new_word_1 = words[0]
     new_word_2 = words[1]
 
-    if (words[0][0] != new_word_2[0])
-      while (new_word_2.length > 1)
-        new_word_2.chop!
-      end
+    last_same_letter_index = 0
+    while (words[0].length > last_same_letter_index &&
+           new_word_2.length > last_same_letter_index &&
+           words[0][last_same_letter_index] == new_word_2[last_same_letter_index])
+      last_same_letter_index += 1
     end
 
-    if (words[1][0] != new_word_1[0])
-      while (new_word_1.length > 1)
-        new_word_1.chop!
-      end
+    while (new_word_2.length > last_same_letter_index + 1)
+      new_word_2.chop!
+    end
+
+    last_same_letter_index = 0
+    while (words[1].length > last_same_letter_index &&
+           new_word_1.length > last_same_letter_index &&
+           words[1][last_same_letter_index] == new_word_1[last_same_letter_index])
+      last_same_letter_index += 1
+    end
+
+    while (new_word_1.length > last_same_letter_index + 1)
+      new_word_1.chop!
     end
 
     [
