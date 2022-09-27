@@ -20,6 +20,10 @@ RSpec.describe UniquePrefixes do
     expect(unique_prefixes.run(["a", "bc"])).to eq(["a", "b"])
   end
 
+  it "previous but reversed" do
+    expect(unique_prefixes.run(["bc", "a"])).to eq(["b", "a"])
+  end
+
   skip "2 words 2 letters sharing first" do
     expect(unique_prefixes.run(["ab", "ac"])).to eq(["ab", "ac"])
   end
